@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hero Section with Background</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,6 +14,7 @@
         <nav class="navbar">
             <div class="nav-brand">
                 <img src="image (4).png" alt="MDEC Logo" class="logo">
+                <span class="brand-text">EUROCERT</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
@@ -28,7 +32,10 @@
     
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Your Gateway to India's Machinery Market — with MDEC</h1>
+            <div class="hero-badge">
+                <span class="badge-text">Machinery Design Excellence</span>
+            </div>
+            <h1 class="hero-title">Your Gateway to India's Machinery Market — with Machinery Design Excellence</h1>
             <p class="hero-subtitle">Showcase. Connect. Grow. A curated pavilion for machinery innovators, hosted by a multinational notified body and powered by Damnart.</p>
             <div class="proof-points">
                 <span class="proof-item">10,000+ Visitors</span>
@@ -51,37 +58,16 @@
                     <img src="Gemini_Generated_Image_h43s8wh43s8wh43s.png" alt="Expand Your Reach" class="card-image-full">
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 11H15M9 15H15M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L19.7071 9.70711C19.8946 9.89464 20 10.149 20 10.4142V19C20 20.1046 19.1046 21 18 21H17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Test Your Solutions</h3>
-                    <p>Test your solutions with real buyers and partners</p>
+                <div class="benefit-card image-only">
+                    <img src="Gemini_Generated_Image_ruuf7pruuf7pruuf.png" alt="Test Your Solutions" class="card-image-full">
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Showcase Innovation</h3>
-                    <p>Showcase innovation with credibility and compliance backing</p>
+                <div class="benefit-card image-only">
+                    <img src="Gemini_Generated_Image_t3bdxht3bdxht3bd.png" alt="Showcase Innovation" class="card-image-full">
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                            <path d="M23 21V19C23 18.1645 22.7155 17.3541 22.2094 16.7006C21.7033 16.047 20.9986 15.5876 20.201 15.3925" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Generate Qualified Enquiries</h3>
-                    <p>Generate qualified enquiries and partnerships in next section</p>
+                <div class="benefit-card image-only">
+                    <img src="Gemini_Generated_Image_44zlcp44zlcp44zl.png" alt="Generate Qualified Enquiries" class="card-image-full">
                 </div>
             </div>
         </div>
@@ -245,7 +231,7 @@
                     </div>
                     
                     <div class="package-cta">
-                        <button class="cta-button primary">Enhance Your Presence – Apply Now</button>
+                        <button class="cta-button primary enhance-apply-btn">Enhance Your Presence – Apply Now</button>
                     </div>
                 </div>
                 
@@ -276,7 +262,7 @@
                     </div>
                     
                     <div class="package-cta">
-                        <button class="cta-button secondary">Claim Your Spot on the Wall of Excellence</button>
+                        <button class="cta-button secondary wall-excellence-btn">Claim Your Spot on the Wall of Excellence</button>
                     </div>
                 </div>
             </div>
@@ -338,44 +324,108 @@
         <div class="container">
             <h2 class="section-title">How It Works</h2>
             
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Apply with details & package choice</h3>
-                        <p>Submit your application with company details and select your preferred package</p>
+            <div class="how-it-works-content">
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Apply with details & package choice</h3>
+                            <p>Submit your application with company details and select your preferred package</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Selection & confirmation</h3>
+                            <p>Our team reviews your application and confirms your participation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Damnart prepares your materials & onboarding</h3>
+                            <p>We create all your marketing materials and provide comprehensive onboarding</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Exhibit live at the show</h3>
+                            <p>Participate in the exhibition with meetings and valet support</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Receive consolidated leads post-event</h3>
+                            <p>Get all your qualified leads and contacts after the event concludes</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Selection & confirmation</h3>
-                        <p>Our team reviews your application and confirms your participation</p>
+                <div class="booking-calendar">
+                    <div class="calendar-header">
+                        <h3>Book Your Participation</h3>
+                        <p>Schedule your exhibition slot and meetings</p>
                     </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Damnart prepares your materials & onboarding</h3>
-                        <p>We create all your marketing materials and provide comprehensive onboarding</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Exhibit live at the show</h3>
-                        <p>Participate in the exhibition with meetings and valet support</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Receive consolidated leads post-event</h3>
-                        <p>Get all your qualified leads and contacts after the event concludes</p>
+                    
+                    <div class="calendar-widget">
+                        <div class="calendar-month">
+                            <div class="month-header">
+                                <button class="month-nav">&lt;</button>
+                                <span class="month-year">October 2024</span>
+                                <button class="month-nav">&gt;</button>
+                            </div>
+                            
+                            <div class="calendar-grid" id="calendarGrid">
+                                <div class="day-header">Sun</div>
+                                <div class="day-header">Mon</div>
+                                <div class="day-header">Tue</div>
+                                <div class="day-header">Wed</div>
+                                <div class="day-header">Thu</div>
+                                <div class="day-header">Fri</div>
+                                <div class="day-header">Sat</div>
+                                <!-- Calendar days will be generated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="booking-info">
+                            <div class="event-dates">
+                                <h4>Exhibition Dates</h4>
+                                <p><strong>October 15-17, 2024</strong></p>
+                                <p>9:00 AM - 6:00 PM</p>
+                            </div>
+                            
+                            <div class="venue-info">
+                                <h4>Venue</h4>
+                                <p><strong>India Expo Centre</strong></p>
+                                <p>Greater Noida, Uttar Pradesh</p>
+                            </div>
+                            
+                            <div class="booking-cta">
+                                <button class="book-slot-btn" id="bookSlotBtn" disabled>Select a Date First</button>
+                            </div>
+                            
+                            <div class="selected-date-info" id="selectedDateInfo" style="display: none;">
+                                <h4>Selected Date</h4>
+                                <p id="selectedDateText"></p>
+                                <div class="time-slots">
+                                    <h5>Available Time Slots:</h5>
+                                    <div class="slot-options">
+                                        <button class="time-slot" data-time="09:00">9:00 AM</button>
+                                        <button class="time-slot" data-time="10:00">10:00 AM</button>
+                                        <button class="time-slot" data-time="11:00">11:00 AM</button>
+                                        <button class="time-slot" data-time="14:00">2:00 PM</button>
+                                        <button class="time-slot" data-time="15:00">3:00 PM</button>
+                                        <button class="time-slot" data-time="16:00">4:00 PM</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -397,7 +447,7 @@
                         </svg>
                     </div>
                     <h3>Application Deadline</h3>
-                    <p>DD/MM/YYYY</p>
+                    <p>November 15, 2024</p>
                 </div>
                 
                 <div class="date-card">
@@ -409,7 +459,7 @@
                         </svg>
                     </div>
                     <h3>Exhibition Dates</h3>
-                    <p>DD–DD/MM/YYYY</p>
+                    <p>December 3-7, 2024</p>
                 </div>
                 
                 <div class="date-card">
@@ -420,7 +470,7 @@
                         </svg>
                     </div>
                     <h3>Venue</h3>
-                    <p>Hall / City / Country</p>
+                    <p>Engimech Exhibition<br>Ahmedabad, Gujarat</p>
                 </div>
             </div>
         </div>
@@ -488,38 +538,332 @@
         <div class="container">
             <h2 class="section-title">Apply Now</h2>
             
-            <div class="form-container">
-                <form class="application-form">
+            <div class="apply-now-content">
+                <div class="video-section">
+                    <div class="video-container">
+                        <video class="intro-video" autoplay loop muted playsinline preload="auto">
+                            <source src="Manufacturing_Expo_Video_Generation.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+                    <div class="video-info">
+                        <h4>Why Choose MDEC?</h4>
+                        <ul class="benefits-list">
+                            <li>✅ 10,000+ visitors and 50+ curated meetings</li>
+                            <li>✅ Access to India's fastest-growing machinery market</li>
+                            <li>✅ Pre-qualified B2B meetings with decision makers</li>
+                            <li>✅ Comprehensive marketing materials included</li>
+                            <li>✅ Post-event lead consolidation and follow-up</li>
+                            <li>✅ Cost-effective entry into Indian market</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <div class="form-container">
+                        <h3>Apply for MDEC Participation</h3>
+                        <p class="form-description">Fill out the form below to secure your spot at India's premier machinery exhibition.</p>
+                        
+                        <form class="application-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="company">Company *</label>
+                                    <input type="text" id="company" name="company" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Website</label>
+                                    <input type="url" id="website" name="website">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-person">Contact Person *</label>
+                                    <input type="text" id="contact-person" name="contact-person" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">Category *</label>
+                                    <select id="category" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="machinery-designers">Machinery Designers & Engineering Firms</option>
+                                        <option value="component-suppliers">Component Suppliers</option>
+                                        <option value="software-providers">Software & Digital Providers</option>
+                                        <option value="manufacturing">Advanced Manufacturing Players</option>
+                                        <option value="academia">Academia & R&D Labs</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="package">Package Choice *</label>
+                                    <select id="package" name="package" required>
+                                        <option value="">Select Package</option>
+                                        <option value="value-enhancers">Value Enhancers (€600)</option>
+                                        <option value="wall-excellence">Wall of Excellence (€1000)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your company and objectives..."></textarea>
+                            </div>
+                            
+                            <div class="form-submit">
+                                <button type="submit" class="submit-button">Apply for MDEC Participation</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Modal -->
+    <div id="packagesModal" class="modal">
+        <div class="modal-content packages-modal-content">
+            <div class="modal-header">
+                <h2>Participation Packages</h2>
+                <span class="close-packages">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3 class="package-title">Value Enhancers</h3>
+                            <div class="package-price">€600</div>
+                            <p class="package-subtitle">For organizations looking to test the waters in India</p>
+                        </div>
+                        
+                        <div class="package-benefits">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✅</span>
+                                <span>E-Brochure (digital)</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✅</span>
+                                <span>Case Study Video (3 min)</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✅</span>
+                                <span>About Us Video (3 min)</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✅</span>
+                                <span>Calendly appointment scheduler</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✅</span>
+                                <span>300 printed brochures</span>
+                            </div>
+                        </div>
+                        
+                        <div class="package-target">
+                            <strong>Best suited for:</strong> Startups, SMEs, and international entrants validating the Indian market.
+                        </div>
+                        
+                        <div class="package-cta">
+                            <button class="cta-button primary package-toggle-form" data-package="value-enhancers">Apply Now</button>
+                        </div>
+                        
+                        <div class="package-form" id="form-value-enhancers" style="display: none;">
+                            <h4>Apply for Value Enhancers Package</h4>
+                            <form class="package-application-form" data-package="value-enhancers">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ve-company">Company *</label>
+                                        <input type="text" id="ve-company" name="company" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ve-website">Website</label>
+                                        <input type="url" id="ve-website" name="website">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ve-contact-person">Contact Person *</label>
+                                        <input type="text" id="ve-contact-person" name="contact-person" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ve-email">Email *</label>
+                                        <input type="email" id="ve-email" name="email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ve-phone">Phone *</label>
+                                        <input type="tel" id="ve-phone" name="phone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ve-category">Category *</label>
+                                        <select id="ve-category" name="category" required>
+                                            <option value="">Select Category</option>
+                                            <option value="machinery-designers">Machinery Designers & Engineering Firms</option>
+                                            <option value="component-suppliers">Component Suppliers</option>
+                                            <option value="software-providers">Software & Digital Providers</option>
+                                            <option value="manufacturing">Advanced Manufacturing Players</option>
+                                            <option value="academia">Academia & R&D Labs</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="ve-message">Message</label>
+                                    <textarea id="ve-message" name="message" rows="3" placeholder="Tell us about your company and objectives..."></textarea>
+                                </div>
+                                
+                                <div class="form-submit">
+                                    <button type="submit" class="submit-button">Submit Application</button>
+                                    <button type="button" class="cancel-button package-toggle-form" data-package="value-enhancers">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card featured">
+                        <div class="package-header">
+                            <h3 class="package-title">Wall of Excellence</h3>
+                            <div class="package-price">€1000</div>
+                            <p class="package-subtitle">For organizations seeking higher visibility and active enquiries from partners and clients</p>
+                        </div>
+                        
+                        <div class="package-benefits">
+                            <div class="benefit-item">
+                                <span class="benefit-icon">✅</span>
+                                <span>All Value Enhancers benefits</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">⭐</span>
+                                <span>Logo display on the MDEC Wall of Excellence</span>
+                            </div>
+                            <div class="benefit-item">
+                                <span class="benefit-icon">⭐</span>
+                                <span>Expo Valet: A host who introduces your company & books meetings</span>
+                            </div>
+                        </div>
+                        
+                        <div class="package-target">
+                            <strong>Best suited for:</strong> Established companies and innovators seeking stronger recognition and more partner leads.
+                        </div>
+                        
+                        <div class="package-cta">
+                            <button class="cta-button secondary package-toggle-form" data-package="wall-excellence">Apply Now</button>
+                        </div>
+                        
+                        <div class="package-form" id="form-wall-excellence" style="display: none;">
+                            <h4>Apply for Wall of Excellence Package</h4>
+                            <form class="package-application-form" data-package="wall-excellence">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="woe-company">Company *</label>
+                                        <input type="text" id="woe-company" name="company" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="woe-website">Website</label>
+                                        <input type="url" id="woe-website" name="website">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="woe-contact-person">Contact Person *</label>
+                                        <input type="text" id="woe-contact-person" name="contact-person" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="woe-email">Email *</label>
+                                        <input type="email" id="woe-email" name="email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="woe-phone">Phone *</label>
+                                        <input type="tel" id="woe-phone" name="phone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="woe-category">Category *</label>
+                                        <select id="woe-category" name="category" required>
+                                            <option value="">Select Category</option>
+                                            <option value="machinery-designers">Machinery Designers & Engineering Firms</option>
+                                            <option value="component-suppliers">Component Suppliers</option>
+                                            <option value="software-providers">Software & Digital Providers</option>
+                                            <option value="manufacturing">Advanced Manufacturing Players</option>
+                                            <option value="academia">Academia & R&D Labs</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="woe-message">Message</label>
+                                    <textarea id="woe-message" name="message" rows="3" placeholder="Tell us about your company and objectives..."></textarea>
+                                </div>
+                                
+                                <div class="form-submit">
+                                    <button type="submit" class="submit-button">Submit Application</button>
+                                    <button type="button" class="cancel-button package-toggle-form" data-package="wall-excellence">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wall of Excellence Modal -->
+    <div id="wallExcellenceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Claim Your Spot on the Wall of Excellence</h2>
+                <span class="close-wall">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="wall-excellence-application-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="company">Company *</label>
-                            <input type="text" id="company" name="company" required>
+                            <label for="wall-company">Company *</label>
+                            <input type="text" id="wall-company" name="company" required>
                         </div>
                         <div class="form-group">
-                            <label for="website">Website</label>
-                            <input type="url" id="website" name="website">
+                            <label for="wall-website">Website</label>
+                            <input type="url" id="wall-website" name="website">
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="contact-person">Contact Person *</label>
-                            <input type="text" id="contact-person" name="contact-person" required>
+                            <label for="wall-contact-person">Contact Person *</label>
+                            <input type="text" id="wall-contact-person" name="contact-person" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="wall-email">Email *</label>
+                            <input type="email" id="wall-email" name="email" required>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="phone">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="wall-phone">Phone *</label>
+                            <input type="tel" id="wall-phone" name="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="category">Category *</label>
-                            <select id="category" name="category" required>
+                            <label for="wall-category">Category *</label>
+                            <select id="wall-category" name="category" required>
                                 <option value="">Select Category</option>
                                 <option value="machinery-designers">Machinery Designers & Engineering Firms</option>
                                 <option value="component-suppliers">Component Suppliers</option>
@@ -532,8 +876,154 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="package">Package Choice *</label>
-                            <select id="package" name="package" required>
+                            <label for="wall-package">Package Choice *</label>
+                            <select id="wall-package" name="package" required>
+                                <option value="">Select Package</option>
+                                <option value="value-enhancers">Value Enhancers (€600)</option>
+                                <option value="wall-excellence" selected>Wall of Excellence (€1000)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wall-message">Message</label>
+                        <textarea id="wall-message" name="message" rows="4" placeholder="Tell us about your company and objectives..."></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="submit-button">Claim Your Spot on the Wall of Excellence</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhance Presence Modal -->
+    <div id="enhanceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Enhance Your Presence - Apply Now</h2>
+                <span class="close-enhance">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="enhance-application-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enhance-company">Company *</label>
+                            <input type="text" id="enhance-company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enhance-website">Website</label>
+                            <input type="url" id="enhance-website" name="website">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enhance-contact-person">Contact Person *</label>
+                            <input type="text" id="enhance-contact-person" name="contact-person" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enhance-email">Email *</label>
+                            <input type="email" id="enhance-email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enhance-phone">Phone *</label>
+                            <input type="tel" id="enhance-phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enhance-category">Category *</label>
+                            <select id="enhance-category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="machinery-designers">Machinery Designers & Engineering Firms</option>
+                                <option value="component-suppliers">Component Suppliers</option>
+                                <option value="software-providers">Software & Digital Providers</option>
+                                <option value="manufacturing">Advanced Manufacturing Players</option>
+                                <option value="academia">Academia & R&D Labs</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="enhance-package">Package Choice *</label>
+                            <select id="enhance-package" name="package" required>
+                                <option value="">Select Package</option>
+                                <option value="value-enhancers" selected>Value Enhancers (€600)</option>
+                                <option value="wall-excellence">Wall of Excellence (€1000)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enhance-message">Message</label>
+                        <textarea id="enhance-message" name="message" rows="4" placeholder="Tell us about your company and objectives..."></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="submit-button">Enhance Your Presence - Apply Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apply Now Modal -->
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Apply for MDEC Participation</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="modal-application-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-company">Company *</label>
+                            <input type="text" id="modal-company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-website">Website</label>
+                            <input type="url" id="modal-website" name="website">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-contact-person">Contact Person *</label>
+                            <input type="text" id="modal-contact-person" name="contact-person" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email">Email *</label>
+                            <input type="email" id="modal-email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-phone">Phone *</label>
+                            <input type="tel" id="modal-phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-category">Category *</label>
+                            <select id="modal-category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="machinery-designers">Machinery Designers & Engineering Firms</option>
+                                <option value="component-suppliers">Component Suppliers</option>
+                                <option value="software-providers">Software & Digital Providers</option>
+                                <option value="manufacturing">Advanced Manufacturing Players</option>
+                                <option value="academia">Academia & R&D Labs</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modal-package">Package Choice *</label>
+                            <select id="modal-package" name="package" required>
                                 <option value="">Select Package</option>
                                 <option value="value-enhancers">Value Enhancers (€600)</option>
                                 <option value="wall-excellence">Wall of Excellence (€1000)</option>
@@ -542,8 +1032,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your company and objectives..."></textarea>
+                        <label for="modal-message">Message</label>
+                        <textarea id="modal-message" name="message" rows="4" placeholder="Tell us about your company and objectives..."></textarea>
                     </div>
                     
                     <div class="form-submit">
@@ -552,7 +1042,7 @@
                 </form>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer class="site-footer">
         <div class="container">
