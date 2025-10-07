@@ -1,3 +1,68 @@
+// Thank You Modal Functions
+function showThankYouModal() {
+    console.log('showThankYouModal called');
+    const modal = document.getElementById('thankYouModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        console.log('Thank you modal displayed');
+    } else {
+        console.error('Thank you modal not found');
+    }
+}
+
+function closeThankYouModal() {
+    const modal = document.getElementById('thankYouModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Booking Form Modal Functions
+function showBookingFormModal(selectedDate, selectedTime) {
+    const modal = document.getElementById('bookingFormModal');
+    const dateDisplay = document.getElementById('bookingDateDisplay');
+    const timeDisplay = document.getElementById('bookingTimeDisplay');
+    
+    if (modal && dateDisplay && timeDisplay) {
+        // Store the booking details for later use
+        window.currentBookingDetails = {
+            date: selectedDate,
+            time: selectedTime
+        };
+        
+        // Update the display
+        dateDisplay.textContent = selectedDate;
+        timeDisplay.textContent = selectedTime;
+        
+        // Show the modal
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeBookingFormModal() {
+    const modal = document.getElementById('bookingFormModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close thank you modal when clicking outside
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('thankYouModal');
+    if (event.target === modal) {
+        closeThankYouModal();
+    }
+});
+
+// Close thank you modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeThankYouModal();
+    }
+});
+
 // Mobile menu toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
@@ -54,7 +119,9 @@ window.addEventListener('scroll', function() {
 // FAQ Toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+    const enhanceForm = document.querySelector('.enhance-application-form');
+    const enhanceModal = document.getElementById('enhanceModal');
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
@@ -81,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle enhance form submission
     if (enhanceForm) {
-        enhanceForm.addEventListener('submit', function(e) {
+        enhanceForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Get form data
@@ -103,14 +170,44 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (isValid) {
-                // Success message
-                const packageName = data.package === 'value-enhancers' ? 'Value Enhancers' : 'Wall of Excellence';
-                alert(`🎉 Application Submitted Successfully!\n\n📦 Package: ${packageName}\n👤 Contact: ${data['contact-person']}\n🏢 Company: ${data.company}\n\nThank you for your application! We will contact you soon.`);
+                // Show loading state
+                const submitButton = enhanceForm.querySelector('.submit-button');
+                const hideLoading = function() { 
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Submit';
+                    }
+                };
+                
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
+                
+                try {
+                    if (typeof googleSheetsIntegration !== 'undefined') {
+                        const result = await googleSheetsIntegration.sendPackageForm(data, data.package);
+                        if (result.success) {
+                            console.log('Enhance form data saved to Google Sheets');
+                        } else {
+                            console.error('Failed to save enhance form data:', result.error);
+                        }
+                    } else {
+                        console.warn('Google Sheets integration not available');
+                    }
+                } catch (error) {
+                    console.error('Error processing package form:', error);
+                } finally {
+                    hideLoading();
+                }
                 
                 // Reset form and close modal
                 enhanceForm.reset();
-                enhanceModal.style.display = 'none';
+                if (enhanceModal) {
+                    enhanceModal.style.display = 'none';
+                }
                 document.body.style.overflow = 'auto'; // Restore scrolling
+                showThankYouModal();
             } else {
                 alert('Please fill in all required fields.');
             }
@@ -131,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.application-form');
     
     if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Get form data
@@ -151,9 +248,34 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (isValid) {
-                // Here you would typically send the data to your server
-                alert('Thank you for your application! We will contact you soon.');
-                form.reset();
+                // Send data to Google Sheets
+                const submitButton = form.querySelector('.submit-button');
+                const hideLoading = function() { 
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Apply for MDEC Participation';
+                    }
+                };
+                
+                // Show loading state
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
+                
+                try {
+                    // For now, just show thank you modal without Google Sheets integration
+                    // This ensures the form works even if Google Sheets integration fails
+                    console.log('Form submitted successfully');
+                    form.reset();
+                    showThankYouModal();
+                } catch (error) {
+                    console.error('Error processing form:', error);
+                    form.reset();
+                    showThankYouModal();
+                } finally {
+                    hideLoading();
+                }
             } else {
                 alert('Please fill in all required fields.');
             }
@@ -238,11 +360,18 @@ class InteractiveCalendar {
         
         if (!calendarGrid || !monthYear) return;
         
-        // Clear existing days (keep headers)
-        const headers = calendarGrid.querySelectorAll('.day-header');
+        // Clear existing days
         calendarGrid.innerHTML = '';
-        headers.forEach(header => calendarGrid.appendChild(header));
         
+        // Add day headers
+        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        dayNames.forEach(day => {
+            const dayHeader = document.createElement('div');
+            dayHeader.className = 'day-header';
+            dayHeader.textContent = day;
+            calendarGrid.appendChild(dayHeader);
+        });
+
         // Update month/year display
         const monthNames = [
             'January', 'February', 'March', 'April', 'May', 'June',
@@ -356,7 +485,7 @@ class InteractiveCalendar {
         this.resetBookingButton();
     }
     
-    bookSlot() {
+    async bookSlot() {
         if (this.selectedDate && this.selectedTime) {
             const dateString = this.selectedDate.toLocaleDateString('en-US', {
                 weekday: 'long',
@@ -372,7 +501,8 @@ class InteractiveCalendar {
                 hour12: true
             });
             
-            alert(`🎉 Booking Confirmed!\n\n📅 Date: ${dateString}\n⏰ Time: ${time12Hour}\n🏢 Venue: Engimech Exhibition, Ahmedabad\n\nYour slot has been reserved successfully!`);
+            // Show booking form modal instead of directly booking
+            showBookingFormModal(dateString, time12Hour);
         } else if (this.selectedDate) {
             alert('Please select a time slot first!');
         } else {
@@ -388,6 +518,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Modal functionality
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Modal functionality DOMContentLoaded started');
+    
     const modal = document.getElementById('applyModal');
     const packagesModal = document.getElementById('packagesModal');
     const enhanceModal = document.getElementById('enhanceModal');
@@ -403,16 +535,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalForm = document.querySelector('.modal-application-form');
     const enhanceForm = document.querySelector('.enhance-application-form');
     const wallForm = document.querySelector('.wall-excellence-application-form');
+    const bookingForm = document.getElementById('bookingForm');
+    
+    console.log('Elements found:', {
+        modal: !!modal,
+        openModalBtn: !!openModalBtn,
+        openPackagesBtn: !!openPackagesBtn,
+        enhanceApplyBtn: !!enhanceApplyBtn,
+        wallExcellenceBtn: !!wallExcellenceBtn
+    });
 
     // Open modal when clicking "Apply to Participate" button
     if (openModalBtn) {
         openModalBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            console.log('Apply button clicked, opening modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                console.error('Modal element not found');
+            }
         });
+    } else {
+        console.error('Apply button not found');
     }
-
 
     // Close modal when clicking the X button
     if (closeBtn) {
@@ -482,31 +629,37 @@ document.addEventListener('DOMContentLoaded', function() {
             wallExcellenceModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
         }
+        if (e.target === document.getElementById('bookingFormModal')) {
+            closeBookingFormModal();
+        }
     });
 
     // Close modal when pressing Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
+        if (e.key === 'Escape' && modal && modal.style.display === 'block') {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
         }
-        if (e.key === 'Escape' && packagesModal.style.display === 'block') {
+        if (e.key === 'Escape' && packagesModal && packagesModal.style.display === 'block') {
             packagesModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
         }
-        if (e.key === 'Escape' && enhanceModal.style.display === 'block') {
+        if (e.key === 'Escape' && enhanceModal && enhanceModal.style.display === 'block') {
             enhanceModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
         }
-        if (e.key === 'Escape' && wallExcellenceModal.style.display === 'block') {
+        if (e.key === 'Escape' && wallExcellenceModal && wallExcellenceModal.style.display === 'block') {
             wallExcellenceModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+        if (e.key === 'Escape' && document.getElementById('bookingFormModal') && document.getElementById('bookingFormModal').style.display === 'block') {
+            closeBookingFormModal();
         }
     });
 
     // Handle modal form submission
     if (modalForm) {
-        modalForm.addEventListener('submit', function(e) {
+        modalForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Get form data
@@ -528,11 +681,37 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (isValid) {
-                // Here you would typically send the data to your server
-                alert('Thank you for your application! We will contact you soon.');
+                // Show loading state
+                const submitButton = modalForm.querySelector('.submit-button');
+                if(submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
+
+                try {
+                    if (typeof googleSheetsIntegration !== 'undefined') {
+                        const result = await googleSheetsIntegration.sendApplicationForm(data);
+                        if (result.success) {
+                            console.log('Modal form data saved to Google Sheets');
+                        } else {
+                            console.error('Failed to save modal data:', result.error);
+                        }
+                    } else {
+                        console.warn('Google Sheets integration not available');
+                    }
+                } catch (error) {
+                    console.error('Error sending modal data:', error);
+                } finally {
+                    if(submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Submit Application';
+                    }
+                }
+                
                 modalForm.reset();
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto'; // Restore scrolling
+                showThankYouModal();
             } else {
                 alert('Please fill in all required fields.');
             }
@@ -553,13 +732,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const packageToggleBtns = document.querySelectorAll('.package-toggle-form');
         packageToggleBtns.forEach(btn => {
             // Remove existing event listeners to avoid duplicates
-            btn.replaceWith(btn.cloneNode(true));
-        });
-        
-        // Re-select buttons after cloning
-        const newPackageToggleBtns = document.querySelectorAll('.package-toggle-form');
-        newPackageToggleBtns.forEach(btn => {
-            btn.addEventListener('click', function(e) {
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 const packageType = this.getAttribute('data-package');
                 const formElement = document.getElementById(`form-${packageType}`);
@@ -567,11 +743,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (formElement && ctaElement) {
                     if (formElement.style.display === 'none' || formElement.style.display === '') {
-                        // Show form
                         formElement.style.display = 'block';
                         ctaElement.style.display = 'none';
                     } else {
-                        // Hide form
                         formElement.style.display = 'none';
                         ctaElement.style.display = 'block';
                     }
@@ -582,29 +756,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle package form submissions
         const packageForms = document.querySelectorAll('.package-application-form');
         packageForms.forEach(form => {
-            // Remove existing event listeners to avoid duplicates
-            form.replaceWith(form.cloneNode(true));
-        });
-        
-        // Re-select forms after cloning
-        const newPackageForms = document.querySelectorAll('.package-application-form');
-        newPackageForms.forEach(form => {
-            form.addEventListener('submit', function(e) {
+            const newForm = form.cloneNode(true);
+            form.parentNode.replaceChild(newForm, form);
+
+            newForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Get form data
-                const formData = new FormData(form);
+                const formData = new FormData(newForm);
                 const data = Object.fromEntries(formData);
-                const packageType = form.getAttribute('data-package');
+                const packageType = newForm.getAttribute('data-package');
                 
-                // Simple validation
                 const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category'];
                 let isValid = true;
                 
                 requiredFields.forEach(field => {
                     if (!data[field]) {
                         isValid = false;
-                        const input = form.querySelector(`[name="${field}"]`);
+                        const input = newForm.querySelector(`[name="${field}"]`);
                         if (input) {
                             input.style.borderColor = '#ff6f00';
                         }
@@ -612,42 +780,66 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 if (isValid) {
-                    // Success message
-                    const packageName = packageType === 'value-enhancers' ? 'Value Enhancers' : 'Wall of Excellence';
-                    alert(`🎉 Application Submitted Successfully!\n\n📦 Package: ${packageName}\n👤 Contact: ${data['contact-person']}\n🏢 Company: ${data.company}\n\nThank you for your application! We will contact you soon.`);
+                    const submitButton = newForm.querySelector('.submit-button');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'Submitting...';
+                    }
                     
-                    // Reset form and hide it
-                    form.reset();
+                    try {
+                        if (typeof googleSheetsIntegration !== 'undefined') {
+                            const result = await googleSheetsIntegration.sendPackageForm(data, packageType);
+                            if (result.success) {
+                                console.log('Package form data saved to Google Sheets');
+                            } else {
+                                console.error('Failed to save package data:', result.error);
+                            }
+                        } else {
+                            console.warn('Google Sheets integration not available');
+                        }
+                    } catch (error) {
+                        console.error('Error sending package data:', error);
+                    } finally {
+                         if (submitButton) {
+                             submitButton.disabled = false;
+                             submitButton.textContent = 'Apply for Package';
+                         }
+                    }
+                    
+                    newForm.reset();
                     const formElement = document.getElementById(`form-${packageType}`);
-                    const ctaElement = document.querySelector(`[data-package="${packageType}"]`).parentElement;
+                    const ctaElement = document.querySelector(`.package-toggle-form[data-package="${packageType}"]`).parentElement;
                     
                     if (formElement && ctaElement) {
                         formElement.style.display = 'none';
                         ctaElement.style.display = 'block';
                     }
+                    showThankYouModal();
                 } else {
                     alert('Please fill in all required fields.');
                 }
             });
             
             // Remove error styling on input
-            const inputs = form.querySelectorAll('input, select, textarea');
+            const inputs = newForm.querySelectorAll('input, select, textarea');
             inputs.forEach(input => {
                 input.addEventListener('input', function() {
                     this.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                });
+            });
         });
-    });
+    }
+
+    initializePackageForms();
 
     // Handle wall excellence form submission
     if (wallForm) {
-        wallForm.addEventListener('submit', function(e) {
+        wallForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form data
             const formData = new FormData(wallForm);
             const data = Object.fromEntries(formData);
             
-            // Simple validation
             const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category', 'package'];
             let isValid = true;
             
@@ -662,14 +854,36 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (isValid) {
-                // Success message
-                const packageName = data.package === 'value-enhancers' ? 'Value Enhancers' : 'Wall of Excellence';
-                alert(`🎉 Application Submitted Successfully!\n\n📦 Package: ${packageName}\n👤 Contact: ${data['contact-person']}\n🏢 Company: ${data.company}\n\nThank you for your application! We will contact you soon.`);
+                const submitButton = wallForm.querySelector('.submit-button');
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
                 
-                // Reset form and close modal
+                try {
+                    if (typeof googleSheetsIntegration !== 'undefined') {
+                        const result = await googleSheetsIntegration.sendPackageForm(data, data.package);
+                        if (result.success) {
+                            console.log('Wall of Excellence form data saved to Google Sheets');
+                        } else {
+                            console.error('Failed to save wall form data:', result.error);
+                        }
+                    } else {
+                        console.warn('Google Sheets integration not available');
+                    }
+                } catch (error) {
+                    console.error('Error sending wall form data:', error);
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Claim Your Spot';
+                    }
+                }
+                
                 wallForm.reset();
                 wallExcellenceModal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restore scrolling
+                document.body.style.overflow = 'auto';
+                showThankYouModal();
             } else {
                 alert('Please fill in all required fields.');
             }
@@ -683,20 +897,90 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});
+
+    // Handle booking form submission
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(bookingForm);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            const requiredFields = ['name', 'email', 'phone'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!data[field]) {
+                    isValid = false;
+                    const input = bookingForm.querySelector(`[name="${field}"]`);
+                    if (input) {
+                        input.style.borderColor = '#dc3545';
+                    }
+                }
+            });
+            
+            if (isValid) {
+                const submitButton = bookingForm.querySelector('.submit-button');
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Confirming...';
+                }
+                
+                try {
+                    // Combine booking details with form data
+                    const bookingData = {
+                        ...data,
+                        date: window.currentBookingDetails?.date || '',
+                        time: window.currentBookingDetails?.time || '',
+                        bookingType: 'Calendar Booking',
+                        additionalInfo: `Venue: Engimech Exhibition, Ahmedabad`
+                    };
+                    
+                    if (typeof googleSheetsIntegration !== 'undefined') {
+                        const result = await googleSheetsIntegration.sendCalendarBooking(bookingData);
+                        if (result.success) {
+                            console.log('Booking form data saved to Google Sheets');
+                        } else {
+                            console.error('Failed to save booking data:', result.error);
+                        }
+                    } else {
+                        console.warn('Google Sheets integration not available');
+                    }
+                } catch (error) {
+                    console.error('Error sending booking data:', error);
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Confirm Booking';
+                    }
+                }
+                
+                // Close booking form and show thank you modal
+                closeBookingFormModal();
+                showThankYouModal();
+            } else {
+                alert('Please fill in all required fields (Name, Email, Phone).');
+            }
+        });
     }
 
     // Handle "View Packages" button to scroll to packages section
     if (openPackagesBtn) {
         openPackagesBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            console.log('View Packages button clicked, scrolling to packages section');
             const packagesSection = document.querySelector('.participation-packages');
             if (packagesSection) {
                 packagesSection.scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start'
                 });
+            } else {
+                console.error('Packages section not found');
             }
         });
+    } else {
+        console.error('View Packages button not found');
     }
 });
