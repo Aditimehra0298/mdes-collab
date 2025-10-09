@@ -63,6 +63,64 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// MDE Evaluation Accordion functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    // Accordion functionality for MDE Evaluation
+    const accordionButtons = document.querySelectorAll('#criteria-accordion .accordion-button');
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            
+            // Close other accordions
+            accordionButtons.forEach(otherButton => {
+                if (otherButton !== button) {
+                    otherButton.classList.remove('active');
+                    otherButton.nextElementSibling.style.maxHeight = null;
+                }
+            });
+
+            // Toggle current accordion
+            button.classList.toggle('active');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    });
+
+    // 8 Pillars Scroll Animation
+    const pillarCards = document.querySelectorAll('.pillar-card');
+    
+    // Set up the Intersection Observer for pillar cards
+    const pillarObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            // When a card enters the viewport
+            if (entry.isIntersecting) {
+                // Add a staggered delay to each card for a nice effect
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, index * 100); // 100ms delay between each card animation
+                
+                // Stop observing the card once it's visible
+                pillarObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger animation when 10% of the card is visible
+    });
+
+    // Observe each pillar card
+    pillarCards.forEach(card => {
+        pillarObserver.observe(card);
+    });
+});
+
 // Mobile menu toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');

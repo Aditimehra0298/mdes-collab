@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Excellence Collaborators - MDEC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for iconography -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tilted-card.css">
+    <style>
+        /* Additional styles for collaborators page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .video-content-wrapper {
+            position: relative;
+            min-height: calc(100vh - 80px);
+            overflow: hidden;
+        }
+
+        .page-background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .page-background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.5) 100%);
+            z-index: 1;
+        }
+
+        /* ITC Content Section - Black Theme */
+        .itc-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .itc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .itc-header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+        }
+
+        .itc-subtitle {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .itc-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .itc-accent {
+            color: #f97316;
+        }
+
+        .itc-description {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: #cbd5e1;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .itc-highlight {
+            font-weight: 700;
+            color: #f97316;
+        }
+
+        .itc-foundation {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            border-bottom: 4px solid #f97316;
+            margin-bottom: 3rem;
+        }
+
+        .foundation-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .foundation-text {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            text-align: center;
+            line-height: 1.75;
+        }
+
+        .foundation-highlight {
+            font-weight: 800;
+            color: #f97316;
+        }
+
+        .foundation-bold {
+            font-weight: 700;
+            color: white;
+        }
+
+        .itc-features {
+            margin-top: 3rem;
+        }
+
+        .features-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .features-description {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-top: 4px solid #f97316;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px -5px rgba(249, 115, 22, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .feature-card-offset-1 {
+            margin-top: 0;
+        }
+
+        .feature-card-offset-2 {
+            margin-top: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .feature-card-offset-1 {
+                margin-top: 2.5rem;
+            }
+            .feature-card-offset-2 {
+                margin-top: 5rem;
+            }
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-number {
+            font-size: 1.875rem;
+            font-weight: 800;
+            color: #f97316;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .feature-intro {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            flex-grow: 1;
+        }
+
+        .feature-item {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 0.875rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #64748b;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+            font-size: 0.875rem;
+        }
+
+        .feature-item strong {
+            color: white;
+        }
+
+        .feature-advantage {
+            background: rgba(249, 115, 22, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #f97316;
+            color: #cbd5e1;
+            font-size: 0.875rem;
+        }
+
+        .feature-advantage strong {
+            color: #f97316;
+        }
+
+        .itc-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .collaborators-hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .collaborators-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .collaborators-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .collaborators-hero p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            line-height: 1.75;
+        }
+
+        .collaborators-main {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+        }
+
+        .collaborators-intro {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .collaborators-intro h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ea580c;
+            margin-bottom: 1.5rem;
+        }
+
+        .collaborators-intro p {
+            font-size: 1.125rem;
+            color: #4b5563;
+            line-height: 1.75;
+        }
+
+        .collaborators-grid-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .collaborators-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .collaborator-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collaborator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .collaborator-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -5px rgba(249, 115, 22, 0.3), 0 10px 20px -6px rgba(249, 115, 22, 0.2);
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+
+        .collaborator-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .collaborator-logo {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        .collaborator-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .collaborator-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+        }
+
+        .collaborator-role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ea580c;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .collaborator-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .collaborator-contributions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .collaborator-contributions li {
+            font-size: 0.95rem;
+            color: #475569;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .collaborator-contributions li:last-child {
+            border-bottom: none;
+        }
+
+        .collaborator-contributions li::before {
+            content: '✓';
+            color: #ea580c;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .collaborators-hero {
+                padding: 120px 0 80px;
+                min-height: 400px;
+            }
+
+            .collaborators-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .collaborators-hero p {
+                font-size: 1rem;
+            }
+
+            .collaborators-intro h2 {
+                font-size: 2rem;
+            }
+
+            .collaborators-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .collaborators-hero {
+                padding: 120px 0 80px;
+            }
+
+            .collaborators-hero h1 {
+                font-size: 2rem;
+            }
+
+            .collaborator-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Hero Tagline Section */
+        .collaborators-hero-tagline {
+            position: relative;
+            z-index: 2;
+            padding: 120px 2rem 20px;
+            text-align: center;
+        }
+
+        .tagline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 3rem 3.5rem;
+            border-radius: 1.5rem;
+            border: 2px solid rgba(249, 115, 22, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .tagline-text {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .collaborators-hero-tagline {
+                padding: 100px 1.5rem 15px;
+            }
+
+            .tagline-container {
+                padding: 2rem 2rem;
+            }
+
+            .tagline-title {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .collaborators-hero-tagline {
+                padding: 90px 1rem 10px;
+            }
+
+            .tagline-container {
+                padding: 1.5rem 1.5rem;
+            }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 1.5rem;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(249, 115, 22, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 2rem;
+            border-bottom: 2px solid rgba(249, 115, 22, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: rgba(249, 115, 22, 0.1);
+            border: 2px solid #f97316;
+            color: #f97316;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: #f97316;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px -5px rgba(249, 115, 22, 0.2);
+        }
+
+        .modal-logo img {
+            max-width: 200px;
+            height: auto;
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                max-height: 95vh;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (Same as main page) -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="Untitled design (28).png" alt="MDEC Logo" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#hero">Homepage</a></li>
+                <li><a href="index.html#what-is-mdec">About MDEC</a></li>
+                <li><a href="index.html#why-participate">Why Participate</a></li>
+                <li><a href="index.html#participation-packages">Packages</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="collaborators-page.html" class="active">Our Partners</a></li>
+                <li><a href="index.html#key-dates-venue">Key Dates & Venue</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="index.html#apply-now">Apply Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Video Content Wrapper (Between Header and Footer) -->
+    <div class="video-content-wrapper">
+        <!-- Background Video -->
+        <video class="page-background-video" autoplay loop muted playsinline>
+            <source src="https://cdn.pixabay.com/video/2024/05/14/212001_large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="page-background-overlay"></div>
+        
+        <!-- Hero Tagline Section -->
+        <div class="collaborators-hero-tagline">
+            <div class="tagline-container">
+                <h1 class="tagline-title">Our Excellence Partnership</h1>
+                <p class="tagline-text">
+                    We offer a seamless, end-to-end partnership that turns machinery concepts into world-class, revenue-generating assets. Acting as a central strategic ally, MDE brings together accredited bodies, consultants, certification and testing labs, standards authorities, and real-world operators to ensure every design meets international standards and market expectations. By uniting technical expertise and commercial insight, we provide a critical bridge from design to global market access.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Tilted Cards Container -->
+        <div class="tilted-cards-container">
+            <!-- Card 1 -->
+            <a href="javascript:void(0);" class="tilted-card-link" id="itc-card-trigger">
+                <figure class="tilted-card-figure tilted-card-1">
+                    <div class="tilted-card-mobile-alert">
+                        This effect is optimized for desktop
+                    </div>
+                    
+                    <div class="tilted-card-inner">
+                        <img 
+                            src="l5.png"
+                            alt="ITC Logo"
+                            class="tilted-card-img"
+                        />
+                        
+                        <div class="tilted-card-overlay">
+                            <p class="tilted-card-overlay-text">
+                                Institute of Testing<br>& Certification<br>(ITC)
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <figcaption class="tilted-card-caption">
+                        Click to view ITC details
+                    </figcaption>
+                </figure>
+            </a>
+            
+            <!-- Card 2 -->
+            <a href="javascript:void(0);" class="tilted-card-link" id="eurocert-card-trigger">
+                <figure class="tilted-card-figure tilted-card-2">
+                    <div class="tilted-card-mobile-alert">
+                        This effect is optimized for desktop
+                    </div>
+                    
+                    <div class="tilted-card-inner">
+                        <img 
+                            src="image (4).png"
+                            alt="MDEC Brand Logo"
+                            class="tilted-card-img"
+                        />
+                        
+                        <div class="tilted-card-overlay">
+                            <p class="tilted-card-overlay-text">
+                                Precision Engineering<br>& Safety<br>Compliance
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <figcaption class="tilted-card-caption">
+                        Click to view Eurocert details
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+    </div>
+
+    <!-- ITC Modal Pop-up -->
+    <div class="modal-overlay" id="itc-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Institute of Testing & Certification (ITC)</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-logo">
+                    <img src="l5.png" alt="ITC Logo">
+                </div>
+                
+                <!-- ITC Content (Same as section below) -->
+                <div class="itc-container">
+                    <!-- Header Section -->
+                    <header class="itc-header">
+                        <h2 class="itc-subtitle">Institute of Testing and Certification (India) Pvt. Ltd.</h2>
+                        <h1 class="itc-title">
+                            We Don't Just Design for Safety. <span class="itc-accent">We Prove It.</span>
+                        </h1>
+                        <h3 class="itc-description">
+                            Our partnership with the <span class="itc-highlight">Institute of Testing and Certification (ITC)</span> transforms your design's safety claims into irrefutable, accredited technical evidence.
+                        </h3>
+                    </header>
+
+                    <!-- Foundation Summary Block -->
+                    <section class="itc-foundation">
+                        <h2 class="foundation-title">
+                            The MDE-ITC Collaboration: The Foundation of Technical Truth
+                        </h2>
+                        <p class="foundation-text">
+                            In essence, <span class="foundation-highlight">MDE designs the compliance into the machine</span>, and <span class="foundation-highlight">ITC provides the accredited validation</span> that the compliance was achieved. This partnership ensures that the "Excellence" in Machinery Design Excellence is not just an opinion, but a <span class="foundation-bold">certified fact.</span>
+                        </p>
+                    </section>
+
+                    <!-- Feature Cards Section -->
+                    <section class="itc-features">
+                        <h2 class="features-title">
+                            3 Ways This Collaboration Drives Your Success
+                        </h2>
+                        <p class="features-description">
+                            We leverage the MDE-ITC synergy to ensure your journey from design to market approval is predictable, proven, and accelerated.
+                        </p>
+
+                        <div class="features-grid">
+                            <!-- Card 1 -->
+                            <div class="feature-card">
+                                <div class="feature-header">
+                                    <div class="feature-number">1</div>
+                                    <h3 class="feature-title">Accredited Validation: From Claim to Fact</h3>
+                                </div>
+                                <p class="feature-intro">This collaboration validates every engineering decision with hard, objective data.</p>
+                                
+                                <ul class="feature-list">
+                                    <li class="feature-item">
+                                        <strong>MDE's Role (The Design):</strong> We design systems to comply with standards like IEC 60204-1.
+                                    </li>
+                                    <li class="feature-item">
+                                        <strong>ITC's Role (The Proof):</strong> As an NABL-accredited (ISO/IEC 17025) lab, ITC performs physical tests for third-party proof.
+                                    </li>
+                                </ul>
+                                <div class="feature-advantage">
+                                    <strong>The MDE-ITC Advantage:</strong> You move from "we think it's safe" to "here is the accredited lab report that proves it."
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="feature-card feature-card-offset-1">
+                                <div class="feature-header">
+                                    <div class="feature-number">2</div>
+                                    <h3 class="feature-title">Streamlined Certification & Risk Reduction</h3>
+                                </div>
+                                <p class="feature-intro">We de-risk the entire certification process, making market entry predictable.</p>
+                                
+                                <ul class="feature-list">
+                                    <li class="feature-item">
+                                        <strong>MDE's Role (Audit Readiness):</strong> We prepare documentation and ensure the prototype is "audit-ready."
+                                    </li>
+                                    <li class="feature-item">
+                                        <strong>ITC's Role (Gap Identification):</strong> They conduct pre-certification testing (e.g., IP Code validation) to resolve compliance gaps before engaging the Notified Body.
+                                    </li>
+                                </ul>
+                                <div class="feature-advantage">
+                                    <strong>The MDE-ITC Advantage:</strong> This prevents costly redesigns and delays, creating a predictable, streamlined path to certification.
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="feature-card feature-card-offset-2">
+                                <div class="feature-header">
+                                    <div class="feature-number">3</div>
+                                    <h3 class="feature-title">Bulletproof Technical File & Final Approval</h3>
+                                </div>
+                                <p class="feature-intro">We establish an unbreakable chain of compliance evidence.</p>
+                                
+                                <ul class="feature-list">
+                                    <li class="feature-item">
+                                        <strong>How it Works (The Chain):</strong> ITC's technical reports are the foundational evidence required by Notified Bodies like Eurocert.
+                                    </li>
+                                    <li class="feature-item">
+                                        <strong>MDE's Role (Optimization):</strong> Our process ensures your design is optimized to pass these tests seamlessly.
+                                    </li>
+                                </ul>
+                                <div class="feature-advantage">
+                                    <strong>The MDE-ITC Advantage:</strong> We build a bullet-proof technical file that accelerates final approval and gives you unwavering confidence in your product's safety and quality.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Note -->
+                    <footer class="itc-footer">
+                        *ITC is the Institute of Testing and Certification (India) Pvt. Ltd.*
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Eurocert Modal Pop-up -->
+    <div class="modal-overlay" id="eurocert-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Eurocert - Multinational Notified Body</h2>
+                <button class="modal-close" id="eurocert-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-logo">
+                    <img src="image (4).png" alt="Eurocert Logo">
+                </div>
+                
+                <!-- Eurocert Content -->
+                <div class="itc-container">
+                    <!-- Header Section -->
+                    <header class="itc-header">
+                        <h2 class="itc-subtitle">Eurocert - Multinational Notified Body</h2>
+                        <h1 class="itc-title">
+                            Your Gateway to <span class="itc-accent">Global Market Access</span>
+                        </h1>
+                        <h3 class="itc-description">
+                            As a <span class="itc-highlight">Notified Body (NoBo 2293)</span>, Eurocert provides the CE marking and certification services you need to legally sell your machinery in European and global markets.
+                        </h3>
+                    </header>
+
+                    <!-- Foundation Summary Block -->
+                    <section class="itc-foundation">
+                        <h2 class="foundation-title">
+                            The MDE-Eurocert Partnership: Design Meets Certification
+                        </h2>
+                        <p class="foundation-text">
+                            <span class="foundation-highlight">MDE ensures your machine is designed for compliance</span>, while <span class="foundation-highlight">Eurocert provides the official certification</span> that opens doors to international markets. Together, we transform your innovation into <span class="foundation-bold">market-ready products.</span>
+                        </p>
+                    </section>
+
+                    <!-- Feature Cards Section -->
+                    <section class="itc-features">
+                        <h2 class="features-title">
+                            3 Ways Eurocert Partnership Accelerates Your Market Entry
+                        </h2>
+                        <p class="features-description">
+                            We leverage the MDE-Eurocert synergy to ensure your path from design to CE marking is streamlined, compliant, and accelerated.
+                        </p>
+
+                        <div class="features-grid">
+                            <!-- Card 1 -->
+                            <div class="feature-card">
+                                <div class="feature-header">
+                                    <div class="feature-number">1</div>
+                                    <h3 class="feature-title">CE Marking & Market Access</h3>
+                                </div>
+                                <p class="feature-intro">Your direct route to European and international markets.</p>
+                                
+                                <ul class="feature-list">
+                                    <li class="feature-item">
+                                        <strong>MDE's Role (Compliance Design):</strong> We design machinery to meet Machinery Directive 2006/42/EC and harmonized standards.
+                                    </li>
+                                    <li class="feature-item">
+                                        <strong>Eurocert's Role (Official Certification):</strong> As a Notified Body, they issue CE certificates and technical file approval for market access.
+                                    </li>
+                                </ul>
+                                <div class="feature-advantage">
+                                    <strong>The MDE-Eurocert Advantage:</strong> From concept to CE mark - we handle both design compliance and certification in one seamless process.
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="feature-card feature-card-offset-1">
+                                <div class="feature-header">
+                                    <div class="feature-number">2</div>
+                                    <h3 class="feature-title">Technical File Excellence</h3>
+                                </div>
+                                <p class="feature-intro">Build a bulletproof technical documentation package.</p>
+                                
+                                <ul class="feature-list">
+                                    <li class="feature-item">
+                                        <strong>MDE's Role (Documentation):</strong> We prepare comprehensive technical files including risk assessments, drawings, and compliance declarations.
+                                    </li>
+                                    <li class="feature-item">
+                                        <strong>Eurocert's Role (Validation):</strong> They review and validate your technical file against EU requirements for CE marking approval.
+                                    </li>
+                                </ul>
+                                <div class="feature-advantage">
+                                    <strong>The MDE-Eurocert Advantage:</strong> No back-and-forth delays - our documentation is pre-validated to Eurocert's standards.
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="feature-card feature-card-offset-2">
+                                <div class="feature-header">
+                                    <div class="feature-number">3</div>
+                                    <h3 class="feature-title">Global Compliance Confidence</h3>
+                                </div>
+                                <p class="feature-intro">Expand beyond Europe with international recognition.</p>
+                                
+                                <ul class="feature-list">
+                                    <li class="feature-item">
+                                        <strong>MDE's Role (Multi-Market Design):</strong> We design for compliance with international standards (ISO, IEC) that work globally.
+                                    </li>
+                                    <li class="feature-item">
+                                        <strong>Eurocert's Role (Global Recognition):</strong> Their certifications are recognized worldwide, opening doors to markets beyond Europe.
+                                    </li>
+                                </ul>
+                                <div class="feature-advantage">
+                                    <strong>The MDE-Eurocert Advantage:</strong> One certification process, global market access - from EU to Asia, Americas, and beyond.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Note -->
+                    <footer class="itc-footer">
+                        *Eurocert is a Multinational Notified Body (NoBo 2293) for Machinery Directive 2006/42/EC*
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Same as main page) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-company">
+                    <div class="footer-logo">
+                        <img src="Untitled design (28).png" alt="MDEC Logo" class="footer-logo-img">
+                        <span class="company-name">MDEC</span>
+                    </div>
+                    <div class="footer-mission">
+                        <p>At MDEC, we are committed to driving Machinery Design Excellence through unwavering precision, innovation, and reliability. Our mission is to empower industries to engineer smarter, safer, and more efficient machines that redefine performance standards and strengthen global competitiveness.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                        </svg>
+                        BACK TO TOP
+                    </button>
+                </div>
+                
+                <div class="footer-section footer-sitemap">
+                    <h4>Site Map</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#hero">Homepage</a></li>
+                        <li><a href="index.html#what-is-mdec">About MDEC</a></li>
+                        <li><a href="index.html#why-participate">Why Participate</a></li>
+                        <li><a href="index.html#participation-packages">Packages</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#key-dates-venue">Key Dates & Venue</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="index.html#apply-now">Apply Now</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section footer-legal">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section footer-contact">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <a href="mailto:bdm@eurocert.in">bdm@eurocert.in</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <a href="mailto:info@eurocert.in">info@eurocert.in</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            <a href="tel:+91-9779665056">+91-9779665056</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            <a href="tel:+91-9316012883">+91-9316012883</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span>Ahmedabad, Gujarat, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>ENGIMACH Exhibition</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 MDEC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="tilted-card.js"></script>
+    <script type="module" src="ripple-grid.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // ITC Modal functionality
+        const itcCardTrigger = document.getElementById('itc-card-trigger');
+        const itcModal = document.getElementById('itc-modal');
+        const modalClose = document.getElementById('modal-close');
+
+        // Open ITC modal
+        itcCardTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            itcModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        // Close ITC modal on close button click
+        modalClose.addEventListener('click', function() {
+            itcModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close ITC modal on overlay click
+        itcModal.addEventListener('click', function(e) {
+            if (e.target === itcModal) {
+                itcModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Eurocert Modal functionality
+        const eurocertCardTrigger = document.getElementById('eurocert-card-trigger');
+        const eurocertModal = document.getElementById('eurocert-modal');
+        const eurocertModalClose = document.getElementById('eurocert-modal-close');
+
+        // Open Eurocert modal
+        eurocertCardTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            eurocertModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        // Close Eurocert modal on close button click
+        eurocertModalClose.addEventListener('click', function() {
+            eurocertModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close Eurocert modal on overlay click
+        eurocertModal.addEventListener('click', function(e) {
+            if (e.target === eurocertModal) {
+                eurocertModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (itcModal.classList.contains('active')) {
+                    itcModal.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+                if (eurocertModal.classList.contains('active')) {
+                    eurocertModal.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
