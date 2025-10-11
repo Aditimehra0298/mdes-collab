@@ -430,7 +430,7 @@ body {
 
 .detail-icon.duration {
     background: #dbeafe;
-    color: #2563eb;
+    color: #192a56;
 }
 
 .detail-icon.mode {
@@ -868,8 +868,8 @@ body {
 }
 
 .pillar-card-blue:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
+    border-color: #192a56;
+    box-shadow: 0 10px 15px -3px rgba(25, 42, 86, 0.2), 0 4px 6px -2px rgba(25, 42, 86, 0.1);
 }
 
 .pillar-card-indigo:hover {
@@ -963,7 +963,7 @@ body {
 }
 
 .blue-icon {
-    color: #3b82f6;
+    color: #192a56;
 }
 
 .indigo-icon {
@@ -1140,7 +1140,7 @@ body {
 }
 
 .blue-dot {
-    background-color: #3b82f6;
+    background-color: #192a56;
 }
 
 .purple-dot {
@@ -1230,7 +1230,7 @@ body {
 }
 
 .blue-title {
-    color: #60a5fa;
+    color: #192a56;
 }
 
 .orange-title {
@@ -1256,7 +1256,7 @@ body {
 }
 
 .blue-icon {
-    color: #60a5fa;
+    color: #192a56;
 }
 
 .orange-icon {
