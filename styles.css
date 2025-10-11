@@ -240,7 +240,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 100px;
+    padding-top: 120px;
     width: 100%;
     overflow-x: hidden;
 }
@@ -486,7 +486,7 @@ body {
     .hero {
         height: auto;
         min-height: 100vh;
-        padding-top: 80px;
+        padding-top: 100px;
         padding-bottom: 40px;
         display: flex;
         align-items: center;
@@ -4326,7 +4326,7 @@ body {
     }
     
     .hero {
-        padding-top: 60px;
+        padding-top: 80px;
         padding-bottom: 20px;
         min-height: auto;
         height: auto;
@@ -5084,7 +5084,7 @@ body {
 
 @media (max-width: 480px) {
     .hero {
-        padding-top: 70px;
+        padding-top: 90px;
         padding-bottom: 30px;
         min-height: 100vh;
     }
@@ -5157,7 +5157,7 @@ body {
     
     .hero-corner-banner {
         position: absolute;
-        top: 90px;
+        top: 100px;
         left: 50%;
         transform: translateX(-50%);
         margin: 0;
