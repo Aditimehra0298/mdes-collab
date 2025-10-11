@@ -6,6 +6,7 @@
 
 html, body {
     overflow-x: hidden;
+    overflow-y: auto;
     width: 100%;
     max-width: 100%;
 }
@@ -235,7 +236,7 @@ body {
 }
 
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -243,6 +244,7 @@ body {
     padding-top: 120px;
     width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /* What is MDEC Section */
