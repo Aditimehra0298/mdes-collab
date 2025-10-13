@@ -796,6 +796,11 @@ body {
     flex-direction: column;
 }
 
+h5.hero-title {
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
 .hero-subtitle-title {
     font-size: 2rem;
     font-weight: 600;
