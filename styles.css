@@ -753,6 +753,19 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
+.badge-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.badge-link:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: inherit;
+}
+
 @keyframes badgeGlow {
     0% {
         box-shadow: 
