@@ -4,7 +4,7 @@
 class GoogleSheetsIntegration {
     constructor() {
         // Replace this URL with your deployed Google Apps Script web app URL
-        this.WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby_B_BwguUJLWV2s0_ViaF9g6DEe5fAeCf0d7i3OYXn1r_zDz29TSUmCcCNAvx0Dw3czw/exec';
+        this.WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwBSNJIMtGiWmhveKf5TMb145nk0s3eyLmHN-yu6hMj3K-P44niIabEwfj316sV5p3Qvg/exec';
         this.isConfigured = this.WEB_APP_URL !== 'YOUR_WEB_APP_URL_HERE';
     }
 
