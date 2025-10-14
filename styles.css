@@ -2129,16 +2129,15 @@ h5.hero-title {
 }
 
 .audience-grid {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, auto);
     gap: 1.5rem;
     margin-top: 2rem;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    justify-items: center;
 }
 
 .audience-grid::-webkit-scrollbar {
@@ -2146,9 +2145,8 @@ h5.hero-title {
 }
 
 .audience-card {
-    flex-shrink: 0;
-    min-width: 200px;
-    max-width: 220px;
+    width: 100%;
+    max-width: 280px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     padding: 2.5rem 2rem;
@@ -5490,9 +5488,9 @@ h5.hero-title {
     }
     
     .audience-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, auto);
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, auto);
+        gap: 1rem;
     }
     
     .audience-card:nth-child(1),
@@ -5546,7 +5544,7 @@ h5.hero-title {
     
     .audience-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, auto);
+        grid-template-rows: repeat(11, auto);
         gap: 1rem;
     }
     
