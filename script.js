@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = Object.fromEntries(formData);
             
             // Simple validation
-            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category', 'package'];
+            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category'];
             let isValid = true;
             
             requiredFields.forEach(field => {
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = Object.fromEntries(formData);
             
             // Simple validation
-            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category', 'package'];
+            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category'];
             let isValid = true;
             
             requiredFields.forEach(field => {
@@ -766,7 +766,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = Object.fromEntries(formData);
             
             // Simple validation
-            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category', 'package'];
+            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category'];
             let isValid = true;
             
             requiredFields.forEach(field => {
@@ -939,7 +939,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(wallForm);
             const data = Object.fromEntries(formData);
             
-            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category', 'package'];
+            const requiredFields = ['company', 'contact-person', 'email', 'phone', 'category'];
             let isValid = true;
             
             requiredFields.forEach(field => {
