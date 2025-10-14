@@ -633,15 +633,15 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Modal functionality DOMContentLoaded started');
     
     const modal = document.getElementById('applyModal');
-    const packagesModal = document.getElementById('packagesModal');
+    // const packagesModal = document.getElementById('packagesModal'); // Removed - packages modal no longer exists
     const enhanceModal = document.getElementById('enhanceModal');
     const wallExcellenceModal = document.getElementById('wallExcellenceModal');
     const openModalBtn = document.querySelector('.hero-button.primary');
-    const openPackagesBtn = document.querySelector('.hero-button.secondary');
+    // const openPackagesBtn = document.querySelector('.hero-button.secondary'); // Removed - no longer needed
     const enhanceApplyBtn = document.querySelector('.enhance-apply-btn');
     const wallExcellenceBtn = document.querySelector('.wall-excellence-btn');
     const closeBtn = document.querySelector('.close');
-    const closePackagesBtn = document.querySelector('.close-packages');
+    // const closePackagesBtn = document.querySelector('.close-packages'); // Removed - packages modal no longer exists
     const closeEnhanceBtn = document.querySelector('.close-enhance');
     const closeWallBtn = document.querySelector('.close-wall');
     const modalForm = document.querySelector('.modal-application-form');
@@ -652,7 +652,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Elements found:', {
         modal: !!modal,
         openModalBtn: !!openModalBtn,
-        openPackagesBtn: !!openPackagesBtn,
         enhanceApplyBtn: !!enhanceApplyBtn,
         wallExcellenceBtn: !!wallExcellenceBtn
     });
@@ -681,13 +680,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close packages modal when clicking the X button
-    if (closePackagesBtn) {
-        closePackagesBtn.addEventListener('click', function() {
-            packagesModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        });
-    }
+    // Packages modal close functionality removed - modal no longer exists
 
     // Open enhance modal when clicking "Enhance Your Presence" button
     if (enhanceApplyBtn) {
@@ -729,10 +722,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
         }
-        if (e.target === packagesModal) {
-            packagesModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
+        // Packages modal click-outside functionality removed - modal no longer exists
         if (e.target === enhanceModal) {
             enhanceModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
@@ -752,10 +742,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
         }
-        if (e.key === 'Escape' && packagesModal && packagesModal.style.display === 'block') {
-            packagesModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
+        // Packages modal escape key functionality removed - modal no longer exists
         if (e.key === 'Escape' && enhanceModal && enhanceModal.style.display === 'block') {
             enhanceModal.style.display = 'none';
             document.body.style.overflow = 'auto'; // Restore scrolling
@@ -1077,22 +1064,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle "View Packages" button to scroll to packages section
-    if (openPackagesBtn) {
-        openPackagesBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('View Packages button clicked, scrolling to packages section');
-            const packagesSection = document.querySelector('.participation-packages');
-            if (packagesSection) {
-                packagesSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            } else {
-                console.error('Packages section not found');
-            }
-        });
-    } else {
-        console.error('View Packages button not found');
-    }
+    // Note: View Packages button removed - no longer needed since package choices were removed from forms
 });

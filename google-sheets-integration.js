@@ -79,7 +79,7 @@ class GoogleSheetsIntegration {
             email: 'test@example.com',
             phone: '+91-9876543210',
             category: 'Test Category',
-            package: 'Test Package',
+            
             message: 'This is a test submission'
         };
 
