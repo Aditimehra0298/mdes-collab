@@ -865,14 +865,31 @@ h5.hero-title {
 }
 
 .proof-item {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(10px);
     padding: 8px 16px;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.proof-item:hover {
+    background: rgba(255, 107, 53, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.proof-item:active {
+    background: rgba(255, 107, 53, 0.4);
+    border: 1px solid rgba(255, 107, 53, 0.8);
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.5);
+    transition: all 0.1s ease;
 }
 
 .cta-buttons {
@@ -6827,36 +6844,25 @@ h5.hero-title {
 
 /* Comparison Table Styles */
 .comparison-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    padding:  0;
+    background: white;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: auto;
 }
 
 .comparison-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
-    pointer-events: none;
+    display: none;
 }
 
 .comparison-table-container {
     max-width: 1000px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    background: transparent;
     border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
     position: relative;
     display: flex;
@@ -6876,12 +6882,12 @@ h5.hero-title {
 }
 
 .comparison-section .section-title {
-    color: white;
+    color: #333;
     text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    font-weight: 800;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: none;
     position: relative;
     z-index: 1;
 }
@@ -6889,6 +6895,7 @@ h5.hero-title {
 .comparison-table {
     width: 100%;
     border-collapse: collapse;
+    background: transparent;
 }
 
 .table-header {
@@ -6932,10 +6939,11 @@ h5.hero-title {
     grid-template-columns: 2fr 1fr 1fr;
     border-bottom: 1px solid #e2e8f0;
     transition: background-color 0.3s ease;
+    background: transparent;
 }
 
 .table-row:hover {
-    background-color: #f8fafc;
+    background-color: rgba(248, 250, 252, 0.5);
 }
 
 .table-row:last-child {
@@ -6949,6 +6957,7 @@ h5.hero-title {
     border-right: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
+    background: transparent;
 }
 
 .benefit-cell {
@@ -6961,6 +6970,7 @@ h5.hero-title {
     align-items: center;
     justify-content: center;
     color: #ff6b35;
+    background: transparent;
 }
 
 .benefit-cell.no {
@@ -7027,7 +7037,7 @@ h5.hero-title {
 
 /* MDES Journey Interactive Gallery */
 .mdes-journey-section {
-    background: url('oo.png');
+    background: url('https://thumbs.dreamstime.com/b/business-cogs-technology-background-banner-computer-circuits-56974243.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -7382,23 +7392,31 @@ h5.hero-title {
 }
 
 .proof-item {
-    background: linear-gradient(135deg, #ea580c, #f97316);
+    background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(10px);
     padding: 8px 16px;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    border: 1px solid rgba(234, 88, 12, 0.3);
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .proof-item:hover {
+    background: rgba(255, 107, 53, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.4);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(234, 88, 12, 0.4);
-    background: linear-gradient(135deg, #dc2626, #ea580c);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.proof-item:active {
+    background: rgba(255, 107, 53, 0.4);
+    border: 1px solid rgba(255, 107, 53, 0.8);
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.5);
+    transition: all 0.1s ease;
 }
 
 /* Section Title Styling */
