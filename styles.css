@@ -4311,10 +4311,12 @@ h5.hero-title {
 
 .floating-whatsapp-btn {
     right: 20px;
+    bottom: 20px;
 }
 
 .floating-phone-btn {
-    right: 90px;
+    right: 20px;
+    bottom: 90px;
 }
 
 .floating-btn-circle {
@@ -4400,8 +4402,8 @@ h5.hero-title {
     }
     
     .floating-phone-btn {
-        right: 85px;
-        bottom: 15px;
+        right: 15px;
+        bottom: 80px;
     }
     
     .floating-btn-circle {
