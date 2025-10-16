@@ -4299,6 +4299,148 @@ h5.hero-title {
     margin-top: 2rem;
 }
 
+/* Floating Action Buttons */
+.floating-whatsapp-btn,
+.floating-phone-btn {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.floating-whatsapp-btn {
+    right: 20px;
+}
+
+.floating-phone-btn {
+    right: 90px;
+}
+
+.floating-btn-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-bg {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.phone-bg {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+}
+
+.floating-btn-icon {
+    width: 28px;
+    height: 28px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.floating-btn-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.floating-btn-circle:hover .floating-btn-icon {
+    transform: scale(1.1);
+}
+
+/* Tooltip Styles */
+.floating-btn-tooltip {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.tooltip-arrow {
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid #333;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.floating-whatsapp-btn:hover .floating-btn-tooltip,
+.floating-phone-btn:hover .floating-btn-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .floating-whatsapp-btn {
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    .floating-phone-btn {
+        right: 85px;
+        bottom: 15px;
+    }
+    
+    .floating-btn-circle {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .floating-btn-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .floating-btn-tooltip {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-whatsapp-btn {
+        right: 10px;
+        bottom: 10px;
+    }
+    
+    .floating-phone-btn {
+        right: 75px;
+        bottom: 10px;
+    }
+    
+    .floating-btn-circle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-btn-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
 /* Modal Styles */
 .modal {
     display: none;
